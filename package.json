@@ -1,0 +1,39 @@
+{
+  "name": "dio-interface",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "Criando uma solução que explore os conceitos apresentados no curso Criando um front-end totalmente componentizado na prática com ReactJS, ministrado por Matheus Benites (@benits) na Digital Innovation One",
+  "repository": "https://github.com/jerp86/dio-interface",
+  "categories": [
+    "Education"
+  ],
+  "author": {
+    "name": "José Eduardo Rodrigues Pinto <jerp86>",
+    "email": "jerp4@hotmail.com",
+    "url": "https://www.linkedin.com/in/jerp/"
+  },
+  "keywords": [
+    "vite",
+    "react",
+    "typescript",
+    "javascript",
+    "dio",
+    "LocalizaLabs"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@vitejs/plugin-react": "^1.0.0",
+    "typescript": "^4.3.2",
+    "vite": "^2.6.4"
+  }
+}
