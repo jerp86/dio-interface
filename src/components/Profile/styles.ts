@@ -13,6 +13,22 @@ export const ContainerInfoUser = styled.div`
   align-items: flex-start;
   justify-content: space-between;
   margin-left: ${pxToRem(8)};
+  height: ${pxToRem(200)};
+
+  h1 {
+    font-size: ${pxToRem(32)};
+    font-weight: bold;
+  }
+
+  h3 {
+    font-size: ${pxToRem(18)};
+    font-weight: bold;
+  }
+
+  h4 {
+    font-size: ${pxToRem(16)};
+    font-weight: bold;
+  }
 `;
 
 export const ContainerStatusCount = styled.div`
