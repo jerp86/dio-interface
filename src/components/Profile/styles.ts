@@ -44,9 +44,16 @@ export const ContainerStatusCount = styled.div`
 export const ContainerUserName = styled.div`
   display: flex;
   align-items: center;
+  margin-top: ${pxToRem(8)};
 
   h3 {
     margin-right: ${pxToRem(8)};
+  }
+
+  a {
+    font-size: ${pxToRem(18)};
+    font-weight: bold;
+    color: blue;
   }
 `;
 
