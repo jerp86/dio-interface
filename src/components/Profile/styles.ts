@@ -18,6 +18,11 @@ export const ContainerInfoUser = styled.div`
 export const ContainerStatusCount = styled.div`
   display: flex;
   align-items: flex-start;
+
+  div {
+    margin: ${pxToRem(8)};
+    text-align: center;
+  }
 `;
 
 export const ContainerUserName = styled.div`
