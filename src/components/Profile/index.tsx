@@ -45,7 +45,7 @@ const Profile: React.FC = () => {
           </div>
 
           <div>
-            <h4>Starreds</h4>
+            <h4>Starred</h4>
             <span>5</span>
           </div>
         </ContainerStatusCount>

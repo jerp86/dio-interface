@@ -9,7 +9,7 @@ const App = () => {
         <Profile />
 
         <div>Repositories</div>
-        <div>Starreds</div>
+        <div>Starred</div>
       </Layout>
     </main>
   );
