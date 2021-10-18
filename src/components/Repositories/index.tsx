@@ -1,4 +1,5 @@
 import React from "react";
+import RepositoryItem from "../RepositoryItem";
 
 import {
   ContainerTab,
@@ -18,8 +19,21 @@ const Repositories: React.FC = () => {
         <ContainerTab>Starred</ContainerTab>
       </ContainerTabList>
 
-      <ContainerTabPanel>panel Repositories</ContainerTabPanel>
-      <ContainerTabPanel>panel Starred</ContainerTabPanel>
+      <ContainerTabPanel>
+        <RepositoryItem
+          name="dio-cep"
+          fullName="jerp86/dio-cep"
+          linkToRepo="https://github.com/jerp86/dio-cep"
+        />
+      </ContainerTabPanel>
+
+      <ContainerTabPanel>
+        <RepositoryItem
+          name="dio-typescript"
+          fullName="jerp86/dio-typescript"
+          linkToRepo="https://github.com/jerp86/dio-typescript"
+        />
+      </ContainerTabPanel>
     </ContainerTabs>
   );
 };
