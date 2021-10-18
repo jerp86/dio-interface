@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { pxToRem } from "../../utils";
+
 export const Container = styled.div`
   display: flex;
   align-items: flex-start;
@@ -10,7 +12,7 @@ export const ContainerInfoUser = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  margin-left: 8px;
+  margin-left: ${pxToRem(8)};
 `;
 
 export const ContainerStatusCount = styled.div`
@@ -23,12 +25,12 @@ export const ContainerUserName = styled.div`
   align-items: center;
 
   h3 {
-    margin-right: 8px;
+    margin-right: ${pxToRem(8)};
   }
 `;
 
 export const WrapperImage = styled.img`
   border-radius: 50%;
-  width: 200px;
-  margin: 8px;
+  width: ${pxToRem(200)};
+  margin: ${pxToRem(8)};
 `;
