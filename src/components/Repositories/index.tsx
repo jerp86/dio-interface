@@ -1,6 +1,11 @@
 import React from "react";
 
-import { ContainerTab, ContainerTabList, ContainerTabs } from "./styles";
+import {
+  ContainerTab,
+  ContainerTabList,
+  ContainerTabPanel,
+  ContainerTabs,
+} from "./styles";
 
 const Repositories: React.FC = () => {
   return (
@@ -12,6 +17,9 @@ const Repositories: React.FC = () => {
         <ContainerTab>Repositories</ContainerTab>
         <ContainerTab>Starred</ContainerTab>
       </ContainerTabList>
+
+      <ContainerTabPanel>panel Repositories</ContainerTabPanel>
+      <ContainerTabPanel>panel Starred</ContainerTabPanel>
     </ContainerTabs>
   );
 };
