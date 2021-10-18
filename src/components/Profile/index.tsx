@@ -23,7 +23,13 @@ const Profile: React.FC = () => {
 
           <ContainerUserName>
             <h3>Username: </h3>
-            <span>jerp86</span>
+            <a
+              href="https://github.com/jerp86"
+              target="_blank"
+              rel="noreferrer"
+            >
+              jerp86
+            </a>
           </ContainerUserName>
         </div>
 
