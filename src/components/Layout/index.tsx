@@ -1,13 +1,13 @@
 import React from "react";
 
-// import { Container } from './styles';
+import { ContainerLayout } from "./styles";
 
 const Layout: React.FC = ({ children }) => {
   return (
-    <section>
+    <ContainerLayout>
       <header>Header</header>
       {children}
-    </section>
+    </ContainerLayout>
   );
 };
 
