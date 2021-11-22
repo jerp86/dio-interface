@@ -11,11 +11,8 @@ import {
 } from "./styles";
 
 const Profile: React.FC = () => {
-  const { user } = useGithub();
-
-  if (!user) {
-    return <h1>Loading...</h1>;
-  }
+  const { githubState } = useGithub();
+  const { user } = githubState;
 
   return (
     <Container>
