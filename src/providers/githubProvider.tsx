@@ -34,6 +34,7 @@ type IStateProps = {
 type IContextProps = {
   githubState: IStateProps;
   getUser: (value: string) => void;
+  getRepos: () => void;
 };
 
 export const GithubContext = createContext<IContextProps>({} as IContextProps);
@@ -60,9 +61,23 @@ const GithubProvider: React.FC = ({ children }) => {
     }));
   };
 
+  const getRepos = async () => {
+    const { user } = githubState;
+
+    if (!user) return;
+
+    try {
+      const { data } = await api.get(`user/${user.login}/repos`);
+      const repositories = data as IRepoProps[];
+
+      setGithubState((state: IStateProps) => ({ ...state, repositories }));
+    } catch (error) {}
+  };
+
   const contextValue = {
     githubState,
     getUser: useCallback((username: string) => getUser(username), []),
+    getRepos: useCallback(() => getRepos(), []),
   };
 
   return (
