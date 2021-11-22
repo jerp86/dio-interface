@@ -3,9 +3,10 @@ import React, { createContext, useEffect, useState } from "react";
 import { api } from "../services";
 
 type IUserProps = {
+  avatar_url?: string;
   login: string;
   name: string;
-  publicUrl: string;
+  html_url: string;
   blog?: string;
   company?: string;
   location?: string;
