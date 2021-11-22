@@ -1,5 +1,4 @@
-import { Layout, Profile, Repositories } from "./components";
-import { ResetCSS } from "./global";
+import { NoSearch, Profile, Repositories } from "./components";
 import { useGithub } from "./hooks";
 
 const App = () => {
@@ -10,7 +9,7 @@ const App = () => {
   }
 
   if (!githubState.hasUser) {
-    return <h1>Nenhum usuário pesquisado</h1>;
+    return <NoSearch />;
   }
 
   return (
