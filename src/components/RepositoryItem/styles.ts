@@ -6,8 +6,8 @@ export const Container = styled.div`
   padding: ${pxToRem(8)};
   border: 1px solid #ccc;
   border-radius: ${pxToRem(8)};
-  min-width: ${pxToRem(200)};
-  min-height: ${pxToRem(100)};
+  width: ${pxToRem(300)};
+  height: ${pxToRem(100)};
 
   h2 {
     font-weight: 500;
