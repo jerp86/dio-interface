@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useCallback, useState } from "react";
 
 import { api } from "../services";
 
@@ -16,36 +16,38 @@ type IUserProps = {
   public_repos?: number;
 };
 
-type IContextProps = {
+type IStateProps = {
+  loading: boolean;
   user: IUserProps;
   repositories: [];
   starred: [];
 };
 
-export const GithubContext = createContext<IContextProps>({
-  user: {} as IUserProps,
-  repositories: [],
-  starred: [],
-});
+type IContextProps = {
+  githubState: IStateProps;
+  getUser: (value: string) => void;
+};
+
+export const GithubContext = createContext<IContextProps>({} as IContextProps);
 
 const GithubProvider: React.FC = ({ children }) => {
-  const [githubState, setGithubState] = useState<IContextProps>(
-    {} as IContextProps
-  );
+  const [githubState, setGithubState] = useState({} as IStateProps);
 
-  const contextValue = {
-    ...githubState,
+  const getUser = async (username: string) => {
+    try {
+      const { data } = await api.get(`users/${username}`);
+      const user = data as IUserProps;
+
+      setGithubState((prev: IStateProps) => ({ ...prev, user }));
+    } catch (error) {
+      console.warn(error);
+    }
   };
 
-  useEffect(() => {
-    api
-      .get("users/jerp86")
-      .then((res) => {
-        const newUser = res.data as IUserProps;
-        setGithubState((prev: IContextProps) => ({ ...prev, user: newUser }));
-      })
-      .catch((err) => console.warn(err));
-  }, []);
+  const contextValue = {
+    githubState,
+    getUser: useCallback((username: string) => getUser(username), []),
+  };
 
   return (
     <GithubContext.Provider value={contextValue}>
