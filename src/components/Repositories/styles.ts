@@ -47,5 +47,5 @@ export const ContainerTabPanel = styled(TabPanel)`
 export const ContainerList = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
 `;
