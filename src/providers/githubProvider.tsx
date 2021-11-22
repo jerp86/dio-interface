@@ -1,6 +1,7 @@
 import React, { createContext, useCallback, useState } from "react";
 
 import { api } from "../services";
+import { sortedArray } from "../utils";
 
 type IUserProps = {
   avatar_url?: string;
@@ -16,7 +17,7 @@ type IUserProps = {
   public_repos?: number;
 };
 
-type IRepoProps = {
+export type IRepoProps = {
   id: string;
   name: string;
   full_name: string;
@@ -70,7 +71,7 @@ const GithubProvider: React.FC = ({ children }) => {
     try {
       setGithubState((state: IStateProps) => ({ ...state, repositories: [] }));
       const { data } = await api.get(`users/${user.login}/repos`);
-      const repositories = data as IRepoProps[];
+      const repositories = sortedArray(data as IRepoProps[]);
 
       setGithubState((state: IStateProps) => ({ ...state, repositories }));
     } catch (error) {
@@ -86,7 +87,7 @@ const GithubProvider: React.FC = ({ children }) => {
     try {
       setGithubState((state: IStateProps) => ({ ...state, starred: [] }));
       const { data } = await api.get(`users/${user.login}/starred`);
-      const starred = data as IRepoProps[];
+      const starred = sortedArray(data as IRepoProps[]);
 
       setGithubState((state: IStateProps) => ({ ...state, starred }));
     } catch (error) {
