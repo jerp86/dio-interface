@@ -1,5 +1,7 @@
 import React from "react";
 
+import { useGithub } from "../../hooks";
+
 import {
   Container,
   ContainerInfoUser,
@@ -9,25 +11,24 @@ import {
 } from "./styles";
 
 const Profile: React.FC = () => {
+  const { user } = useGithub();
+
+  if (!user) {
+    return <h1>Loading...</h1>;
+  }
+
   return (
     <Container>
-      <WrapperImage
-        src="https://avatars.githubusercontent.com/u/54115624?v=4"
-        alt="Avatar of user"
-      />
+      <WrapperImage src={user?.avatar_url} alt="Avatar of user" />
 
       <ContainerInfoUser>
         <div>
-          <h1>José Eduardo Rodrigues Pinto</h1>
+          <h1>{user?.name}</h1>
 
           <ContainerUserName>
             <h3>Username: </h3>
-            <a
-              href="https://github.com/jerp86"
-              target="_blank"
-              rel="noreferrer"
-            >
-              jerp86
+            <a href={user?.html_url} target="_blank" rel="noreferrer">
+              {user?.login}
             </a>
           </ContainerUserName>
         </div>
@@ -35,17 +36,22 @@ const Profile: React.FC = () => {
         <ContainerStatusCount>
           <div>
             <h4>Followers</h4>
-            <span>5</span>
+            <span>{user?.followers}</span>
           </div>
 
           <div>
             <h4>Followings</h4>
-            <span>5</span>
+            <span>{user?.following}</span>
           </div>
 
           <div>
-            <h4>Starred</h4>
-            <span>5</span>
+            <h4>Gists</h4>
+            <span>{user?.public_gists}</span>
+          </div>
+
+          <div>
+            <h4>Repos</h4>
+            <span>{user?.public_repos}</span>
           </div>
         </ContainerStatusCount>
       </ContainerInfoUser>
