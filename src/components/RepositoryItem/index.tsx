@@ -1,24 +1,29 @@
 import React from "react";
 
-// import { Container } from './styles';
+import { Container } from "./styles";
 
 type IRepositoryProps = {
   name: string;
   fullName: string;
   linkToRepo: string;
+  color?: boolean;
 };
 
 const RepositoryItem = (props: IRepositoryProps): JSX.Element => {
-  const { fullName, linkToRepo, name } = props;
+  const { fullName, linkToRepo, name, color = false } = props;
 
   return (
-    <div>
-      <h2>{name}</h2>
-      <h4>full name:</h4>
-      <a href={linkToRepo} target="_blank" rel="noreferrer">
-        {fullName}
-      </a>
-    </div>
+    <Container color={color ? "darkGoldenRod" : "black"}>
+      <h2>
+        name: {name} {color && "🌟"}
+      </h2>
+      <h4>
+        link to:{" "}
+        <a href={linkToRepo} target="_blank" rel="noreferrer">
+          {fullName}
+        </a>
+      </h4>
+    </Container>
   );
 };
 
