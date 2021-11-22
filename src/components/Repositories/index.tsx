@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { NoSearch } from "..";
+
+import { useGithub } from "../../hooks";
 import RepositoryItem from "../RepositoryItem";
 
 import {
@@ -9,6 +12,19 @@ import {
 } from "./styles";
 
 const Repositories: React.FC = () => {
+  const { getRepos, githubState } = useGithub();
+  const { user, repositories } = githubState;
+
+  useEffect(() => {
+    if (user.login) {
+      getRepos();
+    }
+  }, [user.login]);
+
+  if (!repositories) {
+    return <></>;
+  }
+
   return (
     <ContainerTabs
       selectedTabClassName="is-selected"
@@ -20,11 +36,14 @@ const Repositories: React.FC = () => {
       </ContainerTabList>
 
       <ContainerTabPanel>
-        <RepositoryItem
-          name="dio-cep"
-          fullName="jerp86/dio-cep"
-          linkToRepo="https://github.com/jerp86/dio-cep"
-        />
+        {repositories.map(({ id, name, full_name, html_url }) => (
+          <RepositoryItem
+            key={id}
+            name={name}
+            fullName={full_name}
+            linkToRepo={html_url}
+          />
+        ))}
       </ContainerTabPanel>
 
       <ContainerTabPanel>
