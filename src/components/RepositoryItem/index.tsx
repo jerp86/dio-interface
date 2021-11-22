@@ -15,10 +15,10 @@ const RepositoryItem = (props: IRepositoryProps): JSX.Element => {
   return (
     <Container color={color ? "darkGoldenRod" : "black"}>
       <h2>
-        name: {name} {color && "🌟"}
+        {name} {color && "🌟"}
       </h2>
       <h4>
-        link to:{" "}
+        full name:{" "}
         <a href={linkToRepo} target="_blank" rel="noreferrer">
           {fullName}
         </a>
