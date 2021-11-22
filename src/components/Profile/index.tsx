@@ -14,7 +14,6 @@ const Profile: React.FC = () => {
       <WrapperImage
         src="https://avatars.githubusercontent.com/u/54115624?v=4"
         alt="Avatar of user"
-        loading="lazy"
       />
 
       <ContainerInfoUser>
