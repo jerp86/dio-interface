@@ -6,7 +6,7 @@ import {
   Container,
   ContainerInfoUser,
   ContainerStatusCount,
-  ContainerUserName,
+  ContainerUserDetail,
   WrapperImage,
 } from "./styles";
 
@@ -22,12 +22,29 @@ const Profile: React.FC = () => {
         <div>
           <h1>{user?.name}</h1>
 
-          <ContainerUserName>
-            <h3>Username: </h3>
+          <ContainerUserDetail>
+            <h3>Username:</h3>
             <a href={user?.html_url} target="_blank" rel="noreferrer">
               {user?.login}
             </a>
-          </ContainerUserName>
+          </ContainerUserDetail>
+
+          <ContainerUserDetail>
+            <h3>Company:</h3>
+            <span>{user?.company}</span>
+          </ContainerUserDetail>
+
+          <ContainerUserDetail>
+            <h3>Location:</h3>
+            <span>{user?.location}</span>
+          </ContainerUserDetail>
+
+          <ContainerUserDetail>
+            <h3>Blog:</h3>
+            <a href={user?.blog} target="_blank" rel="noreferrer">
+              {user?.blog}
+            </a>
+          </ContainerUserDetail>
         </div>
 
         <ContainerStatusCount>

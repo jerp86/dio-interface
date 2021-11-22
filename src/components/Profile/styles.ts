@@ -41,7 +41,7 @@ export const ContainerStatusCount = styled.div`
   }
 `;
 
-export const ContainerUserName = styled.div`
+export const ContainerUserDetail = styled.div`
   display: flex;
   align-items: center;
   margin-top: ${pxToRem(8)};
