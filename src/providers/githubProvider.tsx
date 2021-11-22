@@ -28,13 +28,14 @@ type IStateProps = {
   hasUser: boolean;
   user: IUserProps;
   repositories: IRepoProps[];
-  starred: [];
+  starred: IRepoProps[];
 };
 
 type IContextProps = {
   githubState: IStateProps;
   getUser: (value: string) => void;
   getRepos: () => void;
+  getStarred: () => void;
 };
 
 export const GithubContext = createContext<IContextProps>({} as IContextProps);
@@ -77,10 +78,27 @@ const GithubProvider: React.FC = ({ children }) => {
     }
   };
 
+  const getStarred = async () => {
+    const { user } = githubState;
+
+    if (!user) return;
+
+    try {
+      setGithubState((state: IStateProps) => ({ ...state, starred: [] }));
+      const { data } = await api.get(`users/${user.login}/starred`);
+      const starred = data as IRepoProps[];
+
+      setGithubState((state: IStateProps) => ({ ...state, starred }));
+    } catch (error) {
+      console.warn(error);
+    }
+  };
+
   const contextValue = {
     githubState,
     getUser: useCallback((username: string) => getUser(username), []),
     getRepos: useCallback(() => getRepos(), [githubState.user]),
+    getStarred: useCallback(() => getStarred(), [githubState.user]),
   };
 
   return (
