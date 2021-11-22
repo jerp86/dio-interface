@@ -1,11 +1,13 @@
 import React from "react";
 
+import Header from "../Header";
+
 import { ContainerLayout } from "./styles";
 
 const Layout: React.FC = ({ children }) => {
   return (
     <ContainerLayout>
-      <header>Header</header>
+      <Header />
       {children}
     </ContainerLayout>
   );
