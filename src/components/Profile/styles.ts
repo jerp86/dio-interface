@@ -57,7 +57,7 @@ export const ContainerUserName = styled.div`
   }
 `;
 
-export const WrapperImage = styled.img`
+export const WrapperImage = styled.img.attrs({ loading: "lazy" })`
   border-radius: 50%;
   width: ${pxToRem(200)};
   margin: ${pxToRem(8)};
