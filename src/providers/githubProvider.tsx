@@ -67,17 +67,20 @@ const GithubProvider: React.FC = ({ children }) => {
     if (!user) return;
 
     try {
-      const { data } = await api.get(`user/${user.login}/repos`);
+      setGithubState((state: IStateProps) => ({ ...state, repositories: [] }));
+      const { data } = await api.get(`users/${user.login}/repos`);
       const repositories = data as IRepoProps[];
 
       setGithubState((state: IStateProps) => ({ ...state, repositories }));
-    } catch (error) {}
+    } catch (error) {
+      console.warn(error);
+    }
   };
 
   const contextValue = {
     githubState,
     getUser: useCallback((username: string) => getUser(username), []),
-    getRepos: useCallback(() => getRepos(), []),
+    getRepos: useCallback(() => getRepos(), [githubState.user]),
   };
 
   return (
