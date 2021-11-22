@@ -6,15 +6,16 @@ export const Container = styled.div`
   padding: ${pxToRem(8)};
   border: 1px solid #ccc;
   border-radius: ${pxToRem(8)};
-  width: fit-content;
-  min-height: ${pxToRem(70)};
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  min-width: ${pxToRem(200)};
+  min-height: ${pxToRem(100)};
 
   h2 {
     font-weight: 500;
+    font-size: ${pxToRem(18)};
     color: ${({ color }) => color};
+  }
+
+  a {
+    color: #3182ce;
   }
 `;

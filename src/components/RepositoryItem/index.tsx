@@ -17,12 +17,10 @@ const RepositoryItem = (props: IRepositoryProps): JSX.Element => {
       <h2>
         {name} {color && "🌟"}
       </h2>
-      <h4>
-        full name:{" "}
-        <a href={linkToRepo} target="_blank" rel="noreferrer">
-          {fullName}
-        </a>
-      </h4>
+      <h4>full name:</h4>
+      <a href={linkToRepo} target="_blank" rel="noreferrer">
+        {fullName}
+      </a>
     </Container>
   );
 };
