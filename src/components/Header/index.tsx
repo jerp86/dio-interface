@@ -14,6 +14,12 @@ const Header: React.FC = () => {
     getUser(usernameForSearch);
   };
 
+  const handleKeyPress = (evt: { code: string; key: string }) => {
+    if (evt.code === "Enter" || evt.key === "Enter") {
+      handleSubmit();
+    }
+  };
+
   return (
     <Wrapper>
       <input
@@ -21,6 +27,7 @@ const Header: React.FC = () => {
         placeholder="Digite o Username para pesquisa..."
         value={usernameForSearch}
         onChange={(evt) => setUsernameForSearch(evt.target.value)}
+        onKeyUp={handleKeyPress}
       />
       <button type="submit" onClick={handleSubmit}>
         <span>Buscar</span>
