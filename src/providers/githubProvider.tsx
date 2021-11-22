@@ -35,6 +35,10 @@ const GithubProvider: React.FC = ({ children }) => {
   const [githubState, setGithubState] = useState({} as IStateProps);
 
   const getUser = async (username: string) => {
+    setGithubState((prev: IStateProps) => ({
+      ...prev,
+      loading: !prev.loading,
+    }));
     try {
       const { data } = await api.get(`users/${username}`);
       const user = data as IUserProps;
@@ -43,6 +47,10 @@ const GithubProvider: React.FC = ({ children }) => {
     } catch (error) {
       console.warn(error);
     }
+    setGithubState((prev: IStateProps) => ({
+      ...prev,
+      loading: !prev.loading,
+    }));
   };
 
   const contextValue = {
