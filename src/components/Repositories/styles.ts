@@ -43,3 +43,9 @@ export const ContainerTabPanel = styled(TabPanel)`
     display: block;
   }
 `;
+
+export const ContainerList = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+`;

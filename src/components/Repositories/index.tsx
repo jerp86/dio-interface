@@ -5,6 +5,7 @@ import { useGithub } from "../../hooks";
 import RepositoryItem from "../RepositoryItem";
 
 import {
+  ContainerList,
   ContainerTab,
   ContainerTabList,
   ContainerTabPanel,
@@ -37,26 +38,30 @@ const Repositories: React.FC = () => {
       </ContainerTabList>
 
       <ContainerTabPanel>
-        {repositories.map(({ id, name, full_name, html_url }) => (
-          <RepositoryItem
-            key={id}
-            name={name}
-            fullName={full_name}
-            linkToRepo={html_url}
-          />
-        ))}
+        <ContainerList>
+          {repositories.map(({ id, name, full_name, html_url }) => (
+            <RepositoryItem
+              key={id}
+              name={name}
+              fullName={full_name}
+              linkToRepo={html_url}
+            />
+          ))}
+        </ContainerList>
       </ContainerTabPanel>
 
       <ContainerTabPanel>
-        {starred.map(({ id, name, full_name, html_url }) => (
-          <RepositoryItem
-            key={id}
-            name={name}
-            fullName={full_name}
-            linkToRepo={html_url}
-            color
-          />
-        ))}
+        <ContainerList>
+          {starred.map(({ id, name, full_name, html_url }) => (
+            <RepositoryItem
+              key={id}
+              name={name}
+              fullName={full_name}
+              linkToRepo={html_url}
+              color
+            />
+          ))}
+        </ContainerList>
       </ContainerTabPanel>
     </ContainerTabs>
   );
