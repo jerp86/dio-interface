@@ -12,16 +12,17 @@ import {
 } from "./styles";
 
 const Repositories: React.FC = () => {
-  const { getRepos, githubState } = useGithub();
-  const { user, repositories } = githubState;
+  const { getRepos, getStarred, githubState } = useGithub();
+  const { user, repositories, starred } = githubState;
 
   useEffect(() => {
     if (user.login) {
       getRepos();
+      getStarred();
     }
   }, [user.login]);
 
-  if (!repositories) {
+  if (!repositories || !starred) {
     return <></>;
   }
 
@@ -47,11 +48,15 @@ const Repositories: React.FC = () => {
       </ContainerTabPanel>
 
       <ContainerTabPanel>
-        <RepositoryItem
-          name="dio-typescript"
-          fullName="jerp86/dio-typescript"
-          linkToRepo="https://github.com/jerp86/dio-typescript"
-        />
+        {starred.map(({ id, name, full_name, html_url }) => (
+          <RepositoryItem
+            key={id}
+            name={name}
+            fullName={full_name}
+            linkToRepo={html_url}
+            color
+          />
+        ))}
       </ContainerTabPanel>
     </ContainerTabs>
   );
