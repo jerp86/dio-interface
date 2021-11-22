@@ -16,11 +16,18 @@ type IUserProps = {
   public_repos?: number;
 };
 
+type IRepoProps = {
+  id: string;
+  name: string;
+  full_name: string;
+  html_url: string;
+};
+
 type IStateProps = {
   loading: boolean;
   hasUser: boolean;
   user: IUserProps;
-  repositories: [];
+  repositories: IRepoProps[];
   starred: [];
 };
 
