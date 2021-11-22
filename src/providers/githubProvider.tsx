@@ -18,6 +18,7 @@ type IUserProps = {
 
 type IStateProps = {
   loading: boolean;
+  hasUser: boolean;
   user: IUserProps;
   repositories: [];
   starred: [];
@@ -38,7 +39,7 @@ const GithubProvider: React.FC = ({ children }) => {
       const { data } = await api.get(`users/${username}`);
       const user = data as IUserProps;
 
-      setGithubState((prev: IStateProps) => ({ ...prev, user }));
+      setGithubState((prev: IStateProps) => ({ ...prev, user, hasUser: true }));
     } catch (error) {
       console.warn(error);
     }
