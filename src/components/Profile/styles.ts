@@ -29,6 +29,20 @@ export const ContainerInfoUser = styled.div`
     font-size: ${pxToRem(16)};
     font-weight: bold;
   }
+
+  @media only screen and (max-width: 600px) {
+    h1 {
+      font-size: ${pxToRem(24)};
+    }
+
+    h3 {
+      font-size: ${pxToRem(16)};
+    }
+
+    h4 {
+      font-size: ${pxToRem(14)};
+    }
+  }
 `;
 
 export const ContainerStatusCount = styled.div`
@@ -55,10 +69,20 @@ export const ContainerUserDetail = styled.div`
     font-weight: bold;
     color: blue;
   }
+
+  @media only screen and (max-width: 600px) {
+    a {
+      font-size: ${pxToRem(16)};
+    }
+  }
 `;
 
 export const WrapperImage = styled.img.attrs({ loading: "lazy" })`
   border-radius: 50%;
   width: ${pxToRem(200)};
   margin: ${pxToRem(8)};
+
+  @media only screen and (max-width: 600px) {
+    width: ${pxToRem(150)};
+  }
 `;

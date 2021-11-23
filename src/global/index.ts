@@ -479,4 +479,11 @@ template {
 [hidden] {
   display: none;
 }
+
+@media only screen 
+   and (max-width : 600px) {
+   html {
+     font-size: 12px;
+   }
+}
 `;

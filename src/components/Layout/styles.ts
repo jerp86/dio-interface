@@ -14,4 +14,8 @@ export const ContainerLayout = styled.section`
     width: fit-content;
     height: ${pxToRem(100)};
   }
+
+  @media only screen and (max-width: 600px) {
+    margin: ${pxToRem(8)} auto;
+  }
 `;
